@@ -1,0 +1,13 @@
+Options +FollowSymlinks
+RewriteEngine on
+RewriteBase /ruokalista/
+##RewriteRule ^/?([-A-Za-z0-9]+)/?$ index.php?p=$1 [QSA,L]
+##RewriteRule ^pvm/?([0-9]+)?/?([0-9]+)?/?([0-9]+)?/?$ index.php?y=$1&m=$2&d=$3 [QSA,L]
+
+RewriteCond %(REQUEST_FILENAME) !-f
+RewriteCond %(REQUEST_FILENAME) !-d
+RewriteRule ^fi/([0-9]+)/([0-9]+)/([0-9]+)$ index.php?y=$1&m=$2&d=$3 [L,QSA]
+
+RewriteRule ^se/([0-9]+)/([0-9]+)/([0-9]+)$ index_se.php?y=$1&m=$2&d=$3 [L,QSA]
+
+RewriteRule ^en/([0-9]+)/([0-9]+)/([0-9]+)$ index_en.php?y=$1&m=$2&d=$3 [L,QSA]
